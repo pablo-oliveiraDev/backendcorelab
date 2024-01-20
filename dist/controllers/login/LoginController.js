@@ -1,21 +1,18 @@
-import { Request, Response } from 'express';
-import { prismaClient } from '../../database/prismaClient';
-
-interface loginBody {
-    email: string;
-    password: string;
-}
-
-export class LoginController {
-    async handle(request: Request, response: Response) {
-        const { email, password }: loginBody = request.body;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoginController = void 0;
+const prismaClient_1 = require("../../database/prismaClient");
+class LoginController {
+    async handle(request, response) {
+        const { email, password } = request.body;
         if (email === null || email === undefined) {
-            return response.status(400).json({ msg: 'Email is not found!' });
-        }else if(password === null ||password === undefined){
-            return response.status(401).json({msg:'Password not found!'});
+            return response.status(400).json({ msg: 'Email is null' });
+        }
+        else if (password === null || password === undefined) {
+            return response.status(401).json({ msg: 'Password not found.' });
         }
         try {
-            const login = await prismaClient.user.findFirst({
+            const login = await prismaClient_1.prismaClient.user.findFirst({
                 where: {
                     email: email,
                     AND: {
@@ -26,19 +23,22 @@ export class LoginController {
                     userImages: true
                 }
             });
-            if (login !== null ||login !== undefined) {
+            if (login !== null || login !== undefined) {
                 return response
                     .status(200)
                     .json({ msg: 'Login sucessfully!', login });
-            } else {
+            }
+            else {
                 return response
                     .status(401)
                     .json({ msg: 'Email or Password incorrect' });
             }
-        } catch {
+        }
+        catch {
             return response
                 .status(401)
                 .json({ msg: 'Unexpected error!Please try again!' });
         }
     }
 }
+exports.LoginController = LoginController;
