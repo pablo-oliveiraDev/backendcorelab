@@ -17,7 +17,7 @@ model User {
   password  String
   createdAt String
   userImages UserImage[]
-  tarefas   Tarefa[]
+  tasks   Task[]
 
   @@map("users")
 }
@@ -31,7 +31,7 @@ model UserImage {
   @@map("userImages")
 }
 
-model Tarefa {
+model Task{
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   titulo      String
   createdAt   String?
@@ -40,5 +40,5 @@ model Tarefa {
   userId      String  @db.ObjectId
   user        User    @relation(fields: [userId], references: [id])
 
-  @@map("tarefas")
+  @@map("tasks")
 }

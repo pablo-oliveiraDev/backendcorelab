@@ -8,7 +8,7 @@ interface patchUserBody {
     image?: string;
     imgId: string;
 }
-export class updateUserController {
+export class UpdateUserController {
     async handle(request: Request, response: Response) {
         const imgBuffer: any = request.file?.buffer.toString('base64');
         const { id, userName, email, password, imgId }: patchUserBody =

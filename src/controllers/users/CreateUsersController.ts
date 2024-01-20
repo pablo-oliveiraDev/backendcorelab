@@ -8,7 +8,7 @@ interface usersBody {
     password: string;
     image?: string;
 }
-export class createUsersController {
+export class CreateUsersController {
     async handle(request: Request, response: Response) {
         const imgBuffer: any = request.file?.buffer.toString('base64');
         const createdAt: number = Date.now();
