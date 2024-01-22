@@ -7,9 +7,9 @@ class CreateTaskController {
     async handle(request, response) {
         const createdAt = Date.now();
         const { titulo, task, userId } = request.body;
-        if (titulo === null ||
+        if (titulo === '' ||
             titulo === undefined ||
-            task === null ||
+            task === '' ||
             task === undefined) {
             return response
                 .status(401)

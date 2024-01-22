@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateCompleteTaskController = void 0;
+exports.UpdateCompletedTaskController = void 0;
 const prismaClient_1 = require("../../database/prismaClient");
 const date_fns_1 = require("date-fns");
-class UpdateCompleteTaskController {
+class UpdateCompletedTaskController {
     async handle(request, response) {
         const { id, titulo, task } = request.body;
         const completedAt = Date.now();
@@ -27,4 +27,4 @@ class UpdateCompleteTaskController {
         }
     }
 }
-exports.UpdateCompleteTaskController = UpdateCompleteTaskController;
+exports.UpdateCompletedTaskController = UpdateCompletedTaskController;

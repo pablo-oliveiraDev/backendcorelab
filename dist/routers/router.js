@@ -39,7 +39,7 @@ const updateUser = new UpdateUserController_1.UpdateUserController();
 router.patch('/updateUser', updateUser.handle);
 const updateTask = new UpdateTaskController_1.UpdateTaskController();
 router.patch('/updateTask', updateTask.handle);
-const updateCompleteTask = new UpdateCompletedTaskController_1.UpdateCompleteTaskController();
+const updateCompleteTask = new UpdateCompletedTaskController_1.UpdateCompletedTaskController();
 router.patch('/updateCompleteTask', updateCompleteTask.handle);
 const deleteUser = new DeleteUserByIdController_1.DeleteUserByIdController();
 router.delete('/deleteUser', deleteUser.handle);
