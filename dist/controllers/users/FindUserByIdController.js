@@ -1,18 +1,17 @@
-import { Request, Response } from 'express';
-import { prismaClient } from '../../database/prismaClient';
-interface FindUserBody {
-    id: string;
-}
-export class FindUserByIdController {
-    async handle(request: Request, response: Response) {
-        const { id }: FindUserBody = request.body;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FindUserByIdController = void 0;
+const prismaClient_1 = require("../../database/prismaClient");
+class FindUserByIdController {
+    async handle(request, response) {
+        const { id } = request.body;
         if (id === null || id === undefined) {
             return response
                 .status(401)
                 .json({ msg: "Id can't null!Please writing id correct!" });
         }
         try {
-            const FindUser = await prismaClient.user.findFirst({
+            const FindUser = await prismaClient_1.prismaClient.user.findFirst({
                 where: {
                     id: id
                 }
@@ -21,14 +20,16 @@ export class FindUserByIdController {
                 return response
                     .status(404)
                     .json({ message: 'User is not found!' });
-                
-            } else {
+            }
+            else {
                 return response.status(200).json(FindUser);
             }
-        } catch {
+        }
+        catch {
             return response
                 .status(404)
                 .json({ msg: 'Unexpected error in search user!' });
         }
     }
 }
+exports.FindUserByIdController = FindUserByIdController;

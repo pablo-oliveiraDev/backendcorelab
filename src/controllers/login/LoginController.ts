@@ -11,8 +11,8 @@ export class LoginController {
         const { email, password }: loginBody = request.body;
         if (email === null || email === undefined) {
             return response.status(400).json({ msg: 'Email is not found!' });
-        }else if(password === null ||password === undefined){
-            return response.status(401).json({msg:'Password not found!'});
+        } else if (password === null || password === undefined) {
+            return response.status(401).json({ msg: 'Password not found!' });
         }
         try {
             const login = await prismaClient.user.findFirst({
@@ -24,16 +24,17 @@ export class LoginController {
                 },
                 include: {
                     userImages: true
-                }
+                },take:1
             });
-            if (login !== null ||login !== undefined) {
-                return response
-                    .status(200)
-                    .json({ msg: 'Login sucessfully!', login });
-            } else {
+            if (login === null || login === undefined) {
                 return response
                     .status(401)
-                    .json({ msg: 'Email or Password incorrect' });
+                    .json({ msg: 'Email or Password incorrect!' });
+            } else {
+                return response.status(200).json({
+                    msg: 'Login sucessfully!',
+                    login
+                });
             }
         } catch {
             return response

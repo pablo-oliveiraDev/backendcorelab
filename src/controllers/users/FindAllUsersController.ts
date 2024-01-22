@@ -8,7 +8,7 @@ export class FindAllUsersController {
             return response.status(200).json(findUsers);
         } catch {
             return response
-                .status(200)
+                .status(400)
                 .json({
                     msg: 'Unexpected error in search users!Please reload page and try again!'
                 });

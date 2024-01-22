@@ -13,6 +13,9 @@ export class CreateUsersController {
         const imgBuffer: any = request.file?.buffer.toString('base64');
         const createdAt: number = Date.now();
         const { userName, email, password }: usersBody = request.body;
+        if (userName === (null || undefined) || email === (null || undefined) || password === (null || undefined)) {
+            return response.status(404).json({ msg:'Fields cannot empty or nulls!'});
+        }
         try {
             const users = await prismaClient.user.create({
                 data: {
@@ -22,18 +25,20 @@ export class CreateUsersController {
                     createdAt: format(createdAt, 'dd/MM/yyyy HH:mm:ss'),
                     userImages: {
                         create: {
-                            image: imgBuffer,
-                        },
-                    },
+                            image: imgBuffer
+                        }
+                    }
                 },
                 include: {
-                    userImages: true,
-                },
+                    userImages: true
+                }
             });
-            return response.status(201).json({ msg: 'User as created!', users });
+            return response
+                .status(201)
+                .json({ msg: 'User as created!', users });
         } catch {
             return response.status(500).json({
-                msg: 'Error to create user!Please waiting for minutes and try again!',
+                msg: 'Error to create user!Please waiting for minutes and try again!'
             });
         }
     }
