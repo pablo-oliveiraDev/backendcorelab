@@ -13,7 +13,11 @@ export class FindTaskByIdController {
                     id: id
                 }
             });
-            return response.status(200).json(findTask);
+            if (findTask === null || findTask === undefined) {
+                return response.status(404).json({ msg: 'Task not found!' });
+            } else {
+                return response.status(200).json(findTask);
+            }
         } catch {
             return response.status(400).json({
                 msg: 'Unexpected error when searching for tasks!Please reload page and try again!'

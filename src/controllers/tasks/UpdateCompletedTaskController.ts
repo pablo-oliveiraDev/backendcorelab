@@ -6,7 +6,7 @@ interface updateTaskBody {
     titulo: string;
     task: string;
 }
-export class UpdateCompleteTaskController {
+export class UpdateCompletedTaskController {
     async handle(request: Request, response: Response) {
         const { id, titulo, task }: updateTaskBody = request.body;
         const completedAt = Date.now();

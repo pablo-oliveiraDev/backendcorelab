@@ -12,9 +12,9 @@ export class CreateTaskController {
         const createdAt = Date.now();
         const { titulo, task, userId }: TasksBody = request.body;
         if (
-            titulo === null ||
+            titulo === '' ||
             titulo === undefined ||
-            task === null ||
+            task === '' ||
             task === undefined
         ) {
             return response

@@ -12,7 +12,7 @@ import { FindAllTasksByUserIdController } from '../controllers/tasks/FindAllTask
 //------------------import updates---------------------------
 import { UpdateUserController } from '../controllers/users/UpdateUserController';
 import { UpdateTaskController } from '../controllers/tasks/UpdateTaskController';
-import { UpdateCompleteTaskController } from '../controllers/tasks/UpdateCompletedTaskController';
+import { UpdateCompletedTaskController } from '../controllers/tasks/UpdateCompletedTaskController';
 
 //------------------import deletes---------------------------
 import { DeleteUserByIdController } from '../controllers/users/DeleteUserByIdController';
@@ -54,7 +54,7 @@ router.patch('/updateUser', updateUser.handle);
 const updateTask = new UpdateTaskController();
 router.patch('/updateTask', updateTask.handle);
 
-const updateCompleteTask = new UpdateCompleteTaskController();
+const updateCompleteTask = new UpdateCompletedTaskController();
 router.patch('/updateCompleteTask', updateCompleteTask.handle);
 
 //-------------Deletes------------------------------------
