@@ -3,7 +3,7 @@
 # CoreLab Node.js - Desafio `CRUD Tasks - API`
 
 <div align="center">
-   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-43853D?" width="25%"/>
+   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-43853D?" width="40%"/>
 </div>
 <br>
 
@@ -11,8 +11,8 @@
    <a href="https://github.com/pablo-oliveiraDev">
       <img alt="Made by Pablo oliveira" src="https://img.shields.io/badge/made%20by-Pablo-yellow">
    </a>
-   <img alt="GitHub Repo Size" src="">
-   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/mgckaled/ignite-nodejs-desafio-tasksAPI">
+   <img alt="GitHub Repo Size" src="https://img.shields.io/github/repo-size/pablo-oliveiraDev/backendcorelab">
+   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/pablo-oliveiraDev/backendcorelab">
 </div>
 <br>
 
@@ -41,6 +41,11 @@ A API deve conter as seguintes funcionalidades:
 ### Tomada de decisões
 Para a resolução do desafio, como solicitado usei o `Node.js` ,banco de dados `Mongodb` até pensei em usar ele em um container porém após analisar seria desnecessário ja que ele tem plataforma em nuvem e ser utilizado em uma api e também pensei em usar o Postgres porém para tarefa seria "usar um canhão para matar uma mosca".
 Utilizei tbm o orm prisma que se encaixa muito bem com os dois bancos de dados proposto para o desafio .
+Quanto ao request.params usei os ids buscando direto no body na minha opinião esses dados visíveis no link deixa brechas para curiosos tentarem fazer algo no front tentarem algo...
+
+
+### Instruções
+- Ao instalar o projeto do deve adicionar um novo .env e configurar a string de conexao do bd mongo `DATABASE_URL` e por fim executar o cmg `npx prisma generate` e irá subir o banco de dados .
 
 
 ### Regras de negócio
@@ -56,36 +61,32 @@ Antes das rotas, vamos entender qual a estrutura (propriedades) que uma task dev
 
 ### Rotas
 
-#### `POST - /tasks`
+#### `POST - /createTask`
 
 -   Deve ser possível criar uma _task_ no banco de dados, enviando os campos `title` e `description` por meio do `body` da requisição.
 -   Ao criar uma _task_, os campos: `id`, `created_at`, `updated_at` e `completed_at` devem ser preenchidos automaticamente, conforme a orientação das propriedades acima.
 
-#### `GET - /tasks`
+#### `GET - /findTaskByUser`
 
--   Deve ser possível listar todas as tasks salvas no banco de dados.
+-   Deve ser possível listar todas as tasks salvas no banco de dados relacionadas ao user.
 -   Também deve ser possível realizar uma busca, filtrando as tasks pelo `title` e `description`
 
-#### `PUT - /tasks/:id`
+#### `PUT - /updateTask`
 
 -   Deve ser possível atualizar uma _task_ pelo `id`.
 -   No `body` da requisição, deve receber somente o `title` e/ou `description` para serem atualizados.
 -   Se for enviado somente o `title`, significa que o `description` não pode ser atualizado e vice-versa.
--   Antes de realizar a atualização, deve ser feito uma validação se o `id` pertence a uma _task_ salva no banco de dados.
 
-#### `DELETE - /tasks/:id`
+#### `DELETE - /deleteTask`
 
 -   Deve ser possível remover uma _task_ pelo `id`.
 -   Antes de realizar a remoção, deve ser feito uma validação se o `id` pertence a uma _task_ salva no banco de dados.
 
-##### `PATCH - /tasks/:id/complete`
+##### `PATCH - /updateCompleteTask`
 
 -   Deve ser possível marcar a _task_ como completa ou não. Isso significa que se a _task_ estiver concluída, deve voltar ao seu estado “normal”.
--   Antes da alteração, deve ser feito uma validação se o `id` pertence a uma _task_ salva no banco de dados.
 
-### Código Comentado
 
-Acesse análises e comentários sobre o código [AQUI](./.github/docs/index.md).
 
 ## Tecnologias
 
