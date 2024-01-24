@@ -39,25 +39,14 @@ A API deve conter as seguintes funcionalidades:
 
 
 ### Tomada de decisões
-Para a resolução do desafio, como solicitado usei o `Node.js` ,banco de dados `Mongodb` até pensei em usar ele em um container porém após analisar seria desnecessário ja que ele tem plataforma em nuvem e ser utilizado em uma api e também pensei em usar o Postgres porém para tarefa seria "usar um canhão para matar uma mosca".
+Para a resolução do desafio, como solicitado usei o `Node.js` ,banco de dados `Mongodb` até pensei em usar ele em um container porém após analisar vi que seria desnecessário ja que ele tem plataforma em nuvem e ser utilizado em uma api , também pensei em usar o Postgres porém para tarefa seria "usar um canhão para matar uma mosca".
 Utilizei tbm o orm prisma que se encaixa muito bem com os dois bancos de dados proposto para o desafio .
 Quanto ao request.params usei os ids buscando direto no body na minha opinião esses dados visíveis no link deixa brechas para curiosos tentarem fazer algo no front tentarem algo...
 
 
 ### Instruções
-- Ao instalar o projeto do deve adicionar um novo .env e configurar a string de conexao do bd mongo `DATABASE_URL` e por fim executar o cmg `npx prisma generate` e irá subir o banco de dados .
+- Ao instalar o projeto/ iniciar do zero deve adicionar um novo .env e configurar a string de conexão do bd mongo `DATABASE_URL` e por fim executar o cmg `npx prisma generate` e irá subir o banco de dados .
 
-
-### Regras de negócio
-
-Antes das rotas, vamos entender qual a estrutura (propriedades) que uma task deve ter:
-
--   `id` - Identificador único de cada _task_
--   `title` - Título da _task_
--   `description` - Descrição detalhada da _task_
--   `completed_at` - Data de quando a _task_ foi concluída.
--   `created_at` - Data de quando a _task_ foi criada.
--   `updated_at` - Deve ser sempre alterado para a data de quando a _task_ foi atualizada.
 
 ### Rotas
 
@@ -69,13 +58,13 @@ Antes das rotas, vamos entender qual a estrutura (propriedades) que uma task dev
 #### `GET - /findTaskByUser`
 
 -   Deve ser possível listar todas as tasks salvas no banco de dados relacionadas ao user.
--   Também deve ser possível realizar uma busca, filtrando as tasks pelo `title` e `description`
+-   Também deve ser possível realizar uma busca, filtrando as tasks pelo `titulo` e `description`
 
 #### `PUT - /updateTask`
 
 -   Deve ser possível atualizar uma _task_ pelo `id`.
--   No `body` da requisição, deve receber somente o `title` e/ou `description` para serem atualizados.
--   Se for enviado somente o `title`, significa que o `description` não pode ser atualizado e vice-versa.
+-   No `body` da requisição, deve receber somente o `titulo` e/ou `description` para serem atualizados.
+-   Se for enviado somente o `titulo`, significa que o `description` não pode ser atualizado e vice-versa.
 
 #### `DELETE - /deleteTask`
 
