@@ -15,13 +15,15 @@ export class FindUserByIdController {
             const FindUser = await prismaClient.user.findFirst({
                 where: {
                     id: id
+                },
+                include: {
+                    userImages: true
                 }
             });
             if (FindUser === null || FindUser === undefined) {
                 return response
                     .status(404)
                     .json({ message: 'User is not found!' });
-                
             } else {
                 return response.status(200).json(FindUser);
             }

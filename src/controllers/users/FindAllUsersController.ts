@@ -7,11 +7,9 @@ export class FindAllUsersController {
             const findUsers = await prismaClient.user.findMany({});
             return response.status(200).json(findUsers);
         } catch {
-            return response
-                .status(400)
-                .json({
-                    msg: 'Unexpected error in search users!Please reload page and try again!'
-                });
+            return response.status(400).json({
+                msg: 'Unexpected error in search users!Please reload page and try again!'
+            });
         }
     }
 }

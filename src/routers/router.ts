@@ -36,7 +36,7 @@ router.post('/createTask', createTask.handle);
 
 //-------------Finds------------------------------------
 const findUserById = new FindUserByIdController();
-router.get('/user', findUserById.handle);
+router.get('/findUserId', findUserById.handle);
 
 const findAllUsers = new FindAllUsersController();
 router.get('/allUsers', findAllUsers.handle);
