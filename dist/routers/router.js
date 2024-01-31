@@ -28,7 +28,7 @@ router.post('/login', loginUser.handle);
 const createTask = new CreateTaskController_1.CreateTaskController();
 router.post('/createTask', createTask.handle);
 const findUserById = new FindUserByIdController_1.FindUserByIdController();
-router.get('/user', findUserById.handle);
+router.get('/findUserId', findUserById.handle);
 const findAllUsers = new FindAllUsersController_1.FindAllUsersController();
 router.get('/allUsers', findAllUsers.handle);
 const findTaskId = new FindTaskByIdController_1.FindTaskByIdController();

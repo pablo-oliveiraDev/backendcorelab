@@ -14,6 +14,9 @@ class FindUserByIdController {
             const FindUser = await prismaClient_1.prismaClient.user.findFirst({
                 where: {
                     id: id
+                },
+                include: {
+                    userImages: true
                 }
             });
             if (FindUser === null || FindUser === undefined) {
