@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.Port || 5080;
 app.use(
     cors({
-        origin: '*',
+        origin: 'http://localhost:3000',
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
         credentials: true, // Se você estiver usando autenticação com credenciais (por exemplo, cookies)
         optionsSuccessStatus: 204
