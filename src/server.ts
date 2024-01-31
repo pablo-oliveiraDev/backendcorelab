@@ -6,8 +6,9 @@ const app = express();
 const port = process.env.Port || 5080;
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*'); // ou substitua '*' pelo domínio específico do seu front-end
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    app.use(cors());
     next();
 });
 app.use(
