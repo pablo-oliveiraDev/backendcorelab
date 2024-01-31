@@ -22,7 +22,6 @@
 [**Tecnologias**](#tecnologias) &nbsp;&nbsp;**•**&nbsp;&nbsp;
 [**Backend-Api**](#) &nbsp;&nbsp;**•**&nbsp;&nbsp;
 
-
 </div>
 
 ## Desafio
@@ -37,16 +36,15 @@ A API deve conter as seguintes funcionalidades:
 -   Remover uma _task_ pelo `id`
 -   Marcar pelo `id` uma _task_ como completa
 
-
 ### Tomada de decisões
+
 Para a resolução do desafio, como solicitado usei o `Node.js` ,banco de dados `Mongodb` até pensei em usar ele em um container porém após analisar vi que seria desnecessário ja que ele tem plataforma em nuvem e ser utilizado em uma api , também pensei em usar o Postgres porém para tarefa seria "usar um canhão para matar uma mosca".
 Utilizei tbm o orm prisma que se encaixa muito bem com os dois bancos de dados proposto para o desafio .
 Quanto ao request.params usei os ids buscando direto no body na minha opinião esses dados visíveis no link deixa brechas para curiosos tentarem fazer algo no front tentarem algo...
 
-
 ### Instruções
-- Ao instalar o projeto/ iniciar do zero deve adicionar um novo .env e configurar a string de conexão do bd mongo `DATABASE_URL` e por fim executar o cmg `npx prisma generate` e irá subir o banco de dados .
 
+-   Ao instalar o projeto/ iniciar do zero deve adicionar um novo .env e configurar a string de conexão do bd mongo `DATABASE_URL` e por fim executar o cmg `npx prisma generate` e irá subir o banco de dados .
 
 ### Rotas
 
@@ -75,16 +73,19 @@ Quanto ao request.params usei os ids buscando direto no body na minha opinião e
 
 -   Deve ser possível marcar a _task_ como completa ou não. Isso significa que se a _task_ estiver concluída, deve voltar ao seu estado “normal”.
 
+## Deploy
 
-
+O deploy feita na `render` e configurado para requisitos de verificação da mesma funcionando.
+```
+ Base url da rota 
+  BaseUrl  https://apicorelab-iqxx.onrender.com
+```
 ## Tecnologias
 
 -   [`Node.js`](https://nodejs.org/n/)
 -   [`Typescript`](https://www.typescriptlang.org/)
 -   [`Prisma`](https://www.npmjs.com/package/prisma)
 -   [`MongoDB`](https://www.npmjs.com/package/mongodb)
-
-
 
 ---
 
