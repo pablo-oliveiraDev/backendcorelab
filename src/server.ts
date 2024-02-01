@@ -14,5 +14,5 @@ app.use(express.json());
 
 app.use(router);
 app.listen(port, async () =>
-    console.log(`Aplicação iniciada na porta ${port}!`)
+    console.log(`Iniciada aplicação na porta ${port}!`)//config da porta
 );
