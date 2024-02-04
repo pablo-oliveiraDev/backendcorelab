@@ -20,8 +20,8 @@ export class CreateUsersController {
             const users = await prismaClient.user.create({
                 data: {
                     userName: userName,
-                    email,
-                    password,
+                    email:email,
+                    password:password,
                     createdAt: format(createdAt, 'dd/MM/yyyy HH:mm:ss'),
                     userImages: {
                         create: {

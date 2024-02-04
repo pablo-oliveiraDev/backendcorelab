@@ -20,8 +20,12 @@ class LoginController {
                     }
                 },
                 include: {
-                    userImages: true
-                }, take: 1
+                    userImages: {
+                        select: {
+                            image: true
+                        }
+                    }
+                }
             });
             if (login === null || login === undefined) {
                 return response
