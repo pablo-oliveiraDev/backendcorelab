@@ -5,20 +5,33 @@ interface updateTaskBody {
     id: string;
     titulo: string;
     task: string;
+    userId: string;
 }
 export class UpdateTaskController {
     async handle(request: Request, response: Response) {
-        const { id, titulo, task }: updateTaskBody = request.body;
+        const { id, titulo, task, userId }: updateTaskBody = request.body;
         const updatedAt = Date.now();
         try {
-            const updateTask = await prismaClient.task.update({
+            const updateTask = await prismaClient.user.update({
                 where: {
-                    id: id
+                    id: userId
                 },
                 data: {
-                    titulo: titulo,
-                    task: task,
-                    updatedAt: format(updatedAt, 'dd/MM/yyyy HH:mm:SS')
+                    tasks: {
+                        update: {
+                            where: {
+                                id: id
+                            },
+                            data: {
+                                titulo: titulo,
+                                task: task,
+                                updatedAt: format(
+                                    updatedAt,
+                                    'dd/MM/yyyy HH:mm:SS'
+                                )
+                            }
+                        }
+                    }
                 }
             });
             return response
