@@ -7,7 +7,7 @@ export class FindAllTasksByUserIdController {
     async handle(request: Request, response: Response) {
         const { userId }: findTaskByUserIdBody = request.body;
         try {
-            const findTaskByUserId = await prismaClient.user.findFirst({
+            const findTaskByUserId = await prismaClient.user.findMany({
                 where: {
                     id: userId
                 },
