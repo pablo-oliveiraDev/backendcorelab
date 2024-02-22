@@ -45,7 +45,7 @@ const findTaskId = new FindTaskByIdController();
 router.get('/findTaskId', findTaskId.handle);
 
 const findAllTaskByUser = new FindAllTasksByUserIdController();
-router.get('/findTaskByUser', findAllTaskByUser.handle);
+router.post('/findTaskByUser', findAllTaskByUser.handle);
 
 //-------------Updates------------------------------------
 const updateUser = new UpdateUserController();
